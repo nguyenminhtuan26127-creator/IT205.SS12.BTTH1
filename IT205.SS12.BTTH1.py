@@ -1,3 +1,122 @@
+# PHÂN TÍCH VÀ THIẾT KẾ GIẢI PHÁP
+
+# 1. Phân tích Input / Output
+#
+# Input:
+# - Danh sách cart_items kiểu List chứa nhiều Dictionary
+# - Người dùng nhập:
+#     + Mã sản phẩm (string)
+#     + Tên sản phẩm (string)
+#     + Số lượng (int)
+#     + Đơn giá (float/int)
+#     + Lựa chọn menu (int)
+#
+# Output:
+# - Hiển thị danh sách sản phẩm dạng bảng
+# - Hiển thị tổng số lượng và tổng tiền
+# - Thông báo thêm / sửa / xóa thành công
+# - Thông báo lỗi khi dữ liệu không hợp lệ
+
+# ---------------------------------------------------------
+
+# 2. Đề xuất giải pháp
+#
+# Chức năng 1: Xem giỏ hàng
+# - Duyệt danh sách bằng vòng lặp for
+# - In thông tin từng sản phẩm
+# - Tính:
+#     + Tổng số lượng
+#     + Tổng tiền = số lượng * đơn giá
+#
+# Chức năng 2: Thêm sản phẩm
+# - Nhập thông tin sản phẩm
+# - Kiểm tra dữ liệu hợp lệ:
+#     + số lượng > 0
+#     + đơn giá >= 0
+# - Nếu ID đã tồn tại:
+#     + cộng dồn số lượng
+# - Nếu chưa tồn tại:
+#     + thêm mới vào list
+#
+# Chức năng 3: Cập nhật số lượng
+# - Nhập mã sản phẩm
+# - Nhập số lượng mới
+# - Kiểm tra số lượng hợp lệ
+# - Nếu tìm thấy sản phẩm:
+#     + cập nhật số lượng
+# - Nếu không tìm thấy:
+#     + báo lỗi
+#
+# Chức năng 4: Xóa sản phẩm
+# - Nhập mã sản phẩm
+# - Tìm sản phẩm trong list
+# - Nếu tồn tại:
+#     + xóa khỏi danh sách
+# - Nếu không tồn tại:
+#     + báo lỗi
+#
+# Chức năng 5: Thoát chương trình
+# - Dùng break để kết thúc vòng lặp
+
+# ---------------------------------------------------------
+
+# 3. Edge Cases (Bẫy dữ liệu)
+#
+# Edge Case 1:
+# - Người dùng nhập số lượng <= 0
+# - Người dùng nhập đơn giá < 0
+# => Báo lỗi và không xử lý
+#
+# Edge Case 2:
+# - Cập nhật hoặc xóa mã sản phẩm không tồn tại
+# => Thông báo:
+#    "Mã sản phẩm không tồn tại trong giỏ hàng."
+#
+# Edge Case 3:
+# - Người dùng nhập menu không hợp lệ
+# - Nhập chữ thay vì số
+# => Dùng try-except để xử lý lỗi
+
+# ---------------------------------------------------------
+
+# 4. Thuật toán chương trình
+#
+# Bước 1:
+# - Khởi tạo danh sách cart_items
+#
+# Bước 2:
+# - Hiển thị menu chức năng
+#
+# Bước 3:
+# - Người dùng chọn chức năng
+#
+# Bước 4:
+# - Dùng match-case để xử lý:
+#
+#     Case 1:
+#         Hiển thị giỏ hàng
+#         Tính tổng tiền
+#
+#     Case 2:
+#         Thêm sản phẩm
+#
+#     Case 3:
+#         Cập nhật số lượng
+#
+#     Case 4:
+#         Xóa sản phẩm
+#
+#     Case 5:
+#         Thoát chương trình
+#
+#     Case _:
+#         Báo lỗi menu không hợp lệ
+#
+# Bước 5:
+# - Lặp lại chương trình cho đến khi chọn thoát
+
+
+# TRIỂN KHAI CODE
 cart_items = [
     {
      	"id": "P001", 
